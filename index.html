@@ -32,52 +32,80 @@
         }
     </style>
 </head>
-<body>
-  <header>
-    <h1>Dalyodh Singh</h1>
-    <p>BS in Data Science & Applications | IIT Madras</p>
-    <p>
-      📧 <a href="mailto:dalyodhsingh1@gmail.com">dalyodhsingh1@gmail.com</a> | 
-      🔗 <a href="https://www.linkedin.com/in/dalyodh-singh-786914254/">LinkedIn</a> | 
-      💻 <a href="https://github.com/yodhsingh/">GitHub</a>
-    </p>
-  </header>
+<body class="leading-relaxed tracking-wide">
 
-  <section>
-    <h2>Education</h2>
-    <p><b>IIT Madras</b> (2022–2026) – BS in Data Science & Applications, CGPA: 8.56</p>
-    <p><b>GDR Convent Sr. Sec. School</b> (2020) – 12th PCM, 65%</p>
-  </section>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl font-bold text-gradient mb-4">Dalyodh Singh</h1>
+            <p class="text-xl text-gray-400 font-light">BS in Data Science & Applications | IIT Madras</p>
+            <div class="mt-6 flex justify-center space-x-6 text-sm">
+                <a href="mailto:dalyodhsingh1@gmail.com" class="hover:text-indigo-400 transition">📧 Email</a>
+                <a href="https://www.linkedin.com/in/dalyodh-singh-786914254/" class="hover:text-indigo-400 transition">🔗 LinkedIn</a>
+                <a href="https://github.com/yodhsingh/" class="hover:text-indigo-400 transition">💻 GitHub</a>
+                <a href="https://yodhsingh.github.io" class="hover:text-indigo-400 transition">🌐 Website</a>
+            </div>
+        </header>
 
-  <section>
-    <h2>Experience</h2>
-    <p><b>Mentor in Mathematics</b>, IIT Madras (Sep 2023 – Apr 2024, May 2025 – Sep 2025)</p>
-    <p>Mentored students in calculus, linear algebra, eigenvalues, determinants, and graph theory.</p>
-  </section>
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 text-cyan-400 uppercase tracking-widest text-sm">Research Focus</h2>
+            <p class="text-gray-300 italic text-lg leading-relaxed">
+                "Specializing in the intersection of LLMs and Retrieval Augmented Generation (RAG) to build context-aware intelligence systems. Passionate about transforming academic theory into scalable industry applications."
+            </p>
+        </section>
 
-  <section>
-    <h2>Projects</h2>
-    <p><b>Quiz Master</b> (Jan – Jun 2025) – Role-based online exam platform with Flask, Vue, ChartJS.</p>
-    <p><b>Juice Bar Analysis</b> (Jul 2024 – Jun 2025) – Sales forecasting, product diversification with Python + Excel.</p>
-  </section>
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 border-b border-gray-800 pb-2">Technical Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-xl accent-border">
+                    <h3 class="text-indigo-400 font-bold text-xl mb-2">AI Resume Intelligence</h3>
+                    <p class="text-sm text-gray-400 mb-4">A RAG-based pipeline using LangChain and FAISS for semantic matching and interview generation.</p>
+                    <span class="text-xs bg-indigo-900 text-indigo-200 px-2 py-1 rounded">GenAI</span>
+                    <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">LLM</span>
+                </div>
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-indigo-400 font-bold text-xl mb-2">Quiz Master</h3>
+                    <p class="text-sm text-gray-400 mb-4">Role-based exam platform utilizing Flask & Vue with real-time data visualization via ChartJS.</p>
+                    <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">Full Stack</span>
+                </div>
+            </div>
+        </section>
 
-  <section>
-    <h2>Skills</h2>
-    <p><b>Languages:</b> Python, SQL, Java, R, Regex</p>
-    <p><b>Libraries:</b> Pandas, Flask, Sklearn, Seaborn, Matplotlib, Streamlit, Plotly</p>
-    <p><b>Soft Skills:</b> Excel, Presentations, Communication</p>
-  </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <section>
+                <h2 class="text-2xl font-semibold mb-6 border-b border-gray-800 pb-2">Experience</h2>
+                <div class="mb-4">
+                    <h4 class="text-gray-100 font-bold">Mentor in Mathematics</h4>
+                    <p class="text-indigo-400 text-sm">IIT Madras | 2023 – 2025</p>
+                    <p class="text-sm text-gray-400 mt-2">Mentoring 100+ students in Linear Algebra, Graph Theory, and Calculus.</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-2xl font-semibold mb-6 border-b border-gray-800 pb-2">Education</h2>
+                <div class="mb-4">
+                    <h4 class="text-gray-100 font-bold">BS in Data Science</h4>
+                    <p class="text-indigo-400 text-sm">IIT Madras | CGPA: 8.56</p>
+                    <p class="text-sm text-gray-400 mt-2">Focus on Machine Learning, NLP, and Big Data Analytics.</p>
+                </div>
+            </section>
+        </div>
 
-  <section>
-    <h2>Achievements</h2>
-    <ul>
-      <li>9.5 CGPA in Foundation Level (Python, Statistics, Math, English)</li>
-      <li>Best Capstone Project Award (Sales Data Analysis)</li>
-    </ul>
-  </section>
+        <section class="mb-12 glass-card p-8 rounded-2xl">
+            <h2 class="text-2xl font-semibold mb-6 text-center">Technical Toolkit</h2>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">Python</span>
+                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">PyTorch</span>
+                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">LangChain</span>
+                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">SQL</span>
+                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">Docker</span>
+                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">RAG Pipelines</span>
+                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">Streamlit</span>
+            </div>
+        </section>
 
-  <footer>
-    <p>© 2025 Dalyodh Singh</p>
-  </footer>
+        <footer class="text-center text-gray-600 text-sm mt-20 border-t border-gray-900 pt-8">
+            <p>© 2026 Dalyodh Singh • Built with AI-driven design</p>
+        </footer>
+    </div>
+
 </body>
 </html>
