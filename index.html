@@ -3,109 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dalyodh Singh | AI Research & Portfolio</title>
+    <title>Dalyodh Singh | AI Systems & Data Science</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-deep: #05070a;
+            --accent: #6366f1;
+            --accent-light: #a5b4fc;
+        }
         body {
-            background-color: #0B0F19;
-            color: #E5E7EB;
+            background-color: var(--bg-deep);
+            color: #f1f5f9;
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: #6366F1;
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
         }
-        .text-gradient {
-            background: linear-gradient(to right, #6366F1, #22D3EE);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .accent-border {
-            border-left: 4px solid #6366F1;
+        .animate-in { animation: fadeIn 0.8s ease forwards; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+
+        .nav-link {
+            position: relative;
+            cursor: pointer;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-light);
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
     </style>
 </head>
-<body class="leading-relaxed tracking-wide">
+<body class="selection:bg-indigo-500/30">
 
-    <div class="max-w-4xl mx-auto px-6 py-12">
-        <header class="text-center mb-16">
-            <h1 class="text-5xl font-bold text-gradient mb-4">Dalyodh Singh</h1>
-            <p class="text-xl text-gray-400 font-light">BS in Data Science & Applications | IIT Madras</p>
-            <div class="mt-6 flex justify-center space-x-6 text-sm">
-                <a href="mailto:dalyodhsingh1@gmail.com" class="hover:text-indigo-400 transition">📧 Email</a>
-                <a href="https://www.linkedin.com/in/dalyodh-singh-786914254/" class="hover:text-indigo-400 transition">🔗 LinkedIn</a>
-                <a href="https://github.com/yodhsingh/" class="hover:text-indigo-400 transition">💻 GitHub</a>
-                <a href="https://yodhsingh.github.io" class="hover:text-indigo-400 transition">🌐 Website</a>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 py-4">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-lg font-semibold tracking-tighter cursor-pointer" onclick="showView('home')">
+                DALYODH<span class="text-indigo-500">.</span>SINGH
             </div>
-        </header>
-
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-6 text-cyan-400 uppercase tracking-widest text-sm">Research Focus</h2>
-            <p class="text-gray-300 italic text-lg leading-relaxed">
-                "Specializing in the intersection of LLMs and Retrieval Augmented Generation (RAG) to build context-aware intelligence systems. Passionate about transforming academic theory into scalable industry applications."
-            </p>
-        </section>
-
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-6 border-b border-gray-800 pb-2">Technical Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card p-6 rounded-xl accent-border">
-                    <h3 class="text-indigo-400 font-bold text-xl mb-2">AI Resume Intelligence</h3>
-                    <p class="text-sm text-gray-400 mb-4">A RAG-based pipeline using LangChain and FAISS for semantic matching and interview generation.</p>
-                    <span class="text-xs bg-indigo-900 text-indigo-200 px-2 py-1 rounded">GenAI</span>
-                    <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">LLM</span>
-                </div>
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-indigo-400 font-bold text-xl mb-2">Quiz Master</h3>
-                    <p class="text-sm text-gray-400 mb-4">Role-based exam platform utilizing Flask & Vue with real-time data visualization via ChartJS.</p>
-                    <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">Full Stack</span>
-                </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <span class="nav-link hover:text-white" onclick="showView('home')">Overview</span>
+                <span class="nav-link hover:text-white" onclick="scrollToId('projects')">Works</span>
+                <span class="nav-link hover:text-white" onclick="scrollToId('experience')">Context</span>
+                <a href="mailto:dalyodhsingh1@gmail.com" class="px-4 py-1.5 bg-white text-black rounded-full text-xs font-bold hover:bg-indigo-100 transition">Contact</a>
             </div>
-        </section>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-            <section>
-                <h2 class="text-2xl font-semibold mb-6 border-b border-gray-800 pb-2">Experience</h2>
-                <div class="mb-4">
-                    <h4 class="text-gray-100 font-bold">Mentor in Mathematics</h4>
-                    <p class="text-indigo-400 text-sm">IIT Madras | 2023 – 2025</p>
-                    <p class="text-sm text-gray-400 mt-2">Mentoring 100+ students in Linear Algebra, Graph Theory, and Calculus.</p>
-                </div>
-            </section>
-            <section>
-                <h2 class="text-2xl font-semibold mb-6 border-b border-gray-800 pb-2">Education</h2>
-                <div class="mb-4">
-                    <h4 class="text-gray-100 font-bold">BS in Data Science</h4>
-                    <p class="text-indigo-400 text-sm">IIT Madras | CGPA: 8.56</p>
-                    <p class="text-sm text-gray-400 mt-2">Focus on Machine Learning, NLP, and Big Data Analytics.</p>
-                </div>
-            </section>
         </div>
+    </nav>
 
-        <section class="mb-12 glass-card p-8 rounded-2xl">
-            <h2 class="text-2xl font-semibold mb-6 text-center">Technical Toolkit</h2>
-            <div class="flex flex-wrap justify-center gap-3">
-                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">Python</span>
-                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">PyTorch</span>
-                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">LangChain</span>
-                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">SQL</span>
-                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">Docker</span>
-                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">RAG Pipelines</span>
-                <span class="px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-sm font-medium">Streamlit</span>
+    <main id="view-container" class="pt-24 pb-20">
+        <!-- Views will be injected here -->
+    </main>
+
+    <!-- VIEWS TEMPLATES -->
+    <script id="view-home" type="text/template">
+        <div class="max-w-6xl mx-auto px-6 space-y-32">
+            
+            <!-- Hero -->
+            <section class="animate-in pt-12 md:pt-20">
+                <div class="max-w-3xl">
+                    <h2 class="badge mb-4">AI Research & Systems</h2>
+                    <h1 class="text-5xl md:text-7xl font-bold serif leading-tight mb-8">
+                        Inquiry into <span class="italic text-slate-400">Data-Driven</span> Intelligent Systems.
+                    </h1>
+                    <p class="text-xl text-slate-400 font-light leading-relaxed mb-10">
+                        Synthesizing mathematical rigor with architectural elegance. Currently pursuing Data Science & AI at <span class="text-white border-b border-indigo-500">IIT Madras</span>.
+                    </p>
+                    <div class="flex items-center space-x-6">
+                        <a href="#" class="flex items-center gap-2 group text-sm font-semibold">
+                            Download Curriculum Vitae 
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                        </a>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/yodhsingh/" target="_blank" class="text-slate-500 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="https://www.linkedin.com/in/dalyodh-singh-786914254/" target="_blank" class="text-slate-500 hover:text-white transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Grid -->
+            <section id="projects" class="animate-in" style="animation-delay: 0.2s">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-xs font-bold tracking-widest text-slate-500 uppercase mb-2">01. Selected Works</h2>
+                        <h3 class="text-3xl serif">Technical Projects</h3>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="glass glass-hover p-8 rounded-2xl cursor-pointer group" onclick="showView('project-hirewave')">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-indigo-500/10 rounded-lg text-indigo-400">
+                                <i data-lucide="sparkles" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs text-slate-500">2025</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition">HireWave.AI</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            GenAI Interview Platform utilizing LLMs for personalized candidate screening and RAG pipelines.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge">PyTorch</span>
+                            <span class="badge">React</span>
+                            <span class="badge">LLMs</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass glass-hover p-8 rounded-2xl cursor-pointer group" onclick="showView('project-malware')">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-cyan-500/10 rounded-lg text-cyan-400">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs text-slate-500">2025</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition">Malware Intelligence</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            End-to-end ML pipeline with XGBoost for behavior-based threat detection using system telemetry.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge">XGBoost</span>
+                            <span class="badge">Pandas</span>
+                            <span class="badge">EDA</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience / Context -->
+            <section id="experience" class="animate-in" style="animation-delay: 0.3s">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    <div class="md:col-span-4">
+                        <h2 class="text-xs font-bold tracking-widest text-slate-500 uppercase mb-2">02. Experience</h2>
+                        <h3 class="text-3xl serif">Professional Context</h3>
+                        <p class="text-slate-500 mt-4 text-sm font-light leading-relaxed">
+                            My journey is defined by a balanced commitment to leadership and technical inquiry.
+                        </p>
+                    </div>
+                    <div class="md:col-span-8 space-y-12">
+                        <div class="relative pl-8 border-l border-white/10 pb-8">
+                            <div class="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+                            <h4 class="text-xl font-bold">Data Science Intern</h4>
+                            <p class="text-indigo-400 text-sm mb-4">Sabudh Foundation (Mohali) | July – Dec 2025</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Experimenting with CNN, RNN, and LSTM architectures. Specialized in dimensionality reduction (PCA/SVD) and SQL-driven feature engineering.
+                            </p>
+                        </div>
+                        <div class="relative pl-8 border-l border-white/10 pb-8">
+                            <div class="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-white/20"></div>
+                            <h4 class="text-xl font-bold">Mathematics Mentor</h4>
+                            <p class="text-indigo-400 text-sm mb-4">IIT Madras | 2023 – 2025</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Mentoring peers in Linear Algebra and Calculus. Focusing on translating complex theorems into intuitive mental models.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership / Human -->
+            <section class="animate-in" style="animation-delay: 0.4s">
+                <div class="glass p-12 rounded-3xl overflow-hidden relative">
+                    <div class="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
+                        <i data-lucide="award" class="w-64 h-64"></i>
+                    </div>
+                    <div class="max-w-2xl relative z-10">
+                        <h2 class="text-xs font-bold tracking-widest text-slate-500 uppercase mb-2">03. The Human Factor</h2>
+                        <h3 class="text-3xl serif mb-6 italic text-indigo-200">"Leadership is calibrated composure."</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div>
+                                <h5 class="font-bold text-white mb-2 flex items-center gap-2">
+                                    <i data-lucide="users" class="w-4 h-4"></i> Sports Captain
+                                </h5>
+                                <p class="text-xs text-slate-500 leading-relaxed">Disciplined decision-making as College Team Captain in Volleyball and Basketball.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2 flex items-center gap-2">
+                                    <i data-lucide="globe" class="w-4 h-4"></i> Multilingual
+                                </h5>
+                                <p class="text-xs text-slate-500 leading-relaxed">Fluent in English, Punjabi, Hindi; currently exploring Japanese (Basic).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="pt-20 text-center border-t border-white/5 pb-10">
+                <p class="text-slate-600 text-xs">© 2026 Dalyodh Singh. Architected for Impact.</p>
+            </footer>
+        </div>
+    </script>
+
+    <!-- Detail View: HireWave.AI -->
+    <script id="view-project-hirewave" type="text/template">
+        <div class="max-w-4xl mx-auto px-6 animate-in">
+            <button onclick="showView('home')" class="mb-12 flex items-center gap-2 text-slate-500 hover:text-white transition text-sm">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Overview
+            </button>
+            <div class="mb-12">
+                <h2 class="badge mb-4">Case Study</h2>
+                <h1 class="text-5xl font-bold serif mb-6">HireWave.AI</h1>
+                <p class="text-xl text-slate-400 font-light leading-relaxed mb-8">
+                    An end-to-end GenAI Interview Platform designed to automate candidate screening through LLM-powered context awareness.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://github.com/yodhsingh/hirewave" target="_blank" class="px-6 py-2 bg-indigo-600 rounded-lg text-sm font-bold hover:bg-indigo-500 transition">View Repository</a>
+                </div>
             </div>
-        </section>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold border-b border-white/10 pb-2">Operational Scope</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 mt-1">•</span>
+                            <span>Led a team of 8 through Agile modular development.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 mt-1">•</span>
+                            <span>Engineered Gemini API integrations for real-time question generation based on candidate profiles.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 mt-1">•</span>
+                            <span>Designed backend APIs with Flask and PostgreSQL for robust data management.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-lg font-bold mb-4">Stack Visualization</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between text-xs"><span>Backend (Python/Flask)</span><span>90%</span></div>
+                        <div class="w-full bg-white/5 h-1 rounded-full"><div class="bg-indigo-500 h-1 rounded-full w-[90%]"></div></div>
+                        <div class="flex justify-between text-xs"><span>AI Orchestration</span><span>85%</span></div>
+                        <div class="w-full bg-white/5 h-1 rounded-full"><div class="bg-indigo-400 h-1 rounded-full w-[85%]"></div></div>
+                        <div class="flex justify-between text-xs"><span>Frontend (React)</span><span>70%</span></div>
+                        <div class="w-full bg-white/5 h-1 rounded-full"><div class="bg-indigo-300 h-1 rounded-full w-[70%]"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
 
-        <footer class="text-center text-gray-600 text-sm mt-20 border-t border-gray-900 pt-8">
-            <p>© 2026 Dalyodh Singh • Built with AI-driven design</p>
-        </footer>
-    </div>
+    <!-- Detail View: Malware Detection -->
+    <script id="view-project-malware" type="text/template">
+        <div class="max-w-4xl mx-auto px-6 animate-in">
+            <button onclick="showView('home')" class="mb-12 flex items-center gap-2 text-slate-500 hover:text-white transition text-sm">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Overview
+            </button>
+            <div class="mb-12 text-center">
+                <h2 class="badge mb-4">Research Project</h2>
+                <h1 class="text-5xl font-bold serif mb-6">Malware Detection</h1>
+                <p class="text-lg text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                    Analyzing the impact of behavioral features on malicious binary detection using boosting architectures.
+                </p>
+            </div>
+            <div class="glass p-1 rounded-3xl overflow-hidden mb-16">
+                <div class="bg-slate-900/50 p-12 text-center">
+                    <i data-lucide="activity" class="w-16 h-16 text-cyan-400 mx-auto mb-6"></i>
+                    <h3 class="text-xl font-bold mb-2">Metrics Observed</h3>
+                    <p class="text-slate-500 text-sm italic">Significant correlation between memory telemetry and execution patterns.</p>
+                </div>
+            </div>
+            <div class="space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 glass rounded-2xl"><div class="text-3xl font-bold text-cyan-400">94.2%</div><div class="text-xs text-slate-500 uppercase mt-1">Accuracy</div></div>
+                    <div class="p-6 glass rounded-2xl"><div class="text-3xl font-bold text-cyan-400">XGBoost</div><div class="text-xs text-slate-500 uppercase mt-1">Algorithm</div></div>
+                    <div class="p-6 glass rounded-2xl"><div class="text-3xl font-bold text-cyan-400">20+</div><div class="text-xs text-slate-500 uppercase mt-1">Features</div></div>
+                </div>
+                <div class="max-w-2xl mx-auto text-slate-400 text-sm leading-relaxed space-y-4">
+                    <p>Building an end-to-end ML pipeline required rigorous EDA. I focused on feature engineering from system telemetry, implementing hyperparameter tuning across Logistic Regression, Decision Trees, and XGBoost.</p>
+                    <p>The project highlighted the influence of variable interaction using heat maps and dimensionality reduction techniques to ensure model interpretability.</p>
+                </div>
+            </div>
+        </div>
+    </script>
 
+    <script>
+        // State Management & Router
+        function showView(viewId) {
+            const container = document.getElementById('view-container');
+            const template = document.getElementById(`view-${viewId}`).innerHTML;
+            
+            // Fade out
+            container.style.opacity = '0';
+            
+            setTimeout(() => {
+                container.innerHTML = template;
+                lucide.createIcons();
+                window.scrollTo(0, 0);
+                container.style.opacity = '1';
+                container.classList.add('animate-in');
+            }, 200);
+        }
+
+        function scrollToId(id) {
+            if (document.getElementById(id)) {
+                document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // If on a project page, return home then scroll
+                showView('home');
+                setTimeout(() => scrollToId(id), 300);
+            }
+        }
+
+        // Initialize
+        window.onload = () => {
+            showView('home');
+        };
+    </script>
 </body>
 </html>
